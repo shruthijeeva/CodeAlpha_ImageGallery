@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garry Winogrand — The Street Eye</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <canvas id="noise-canvas"></canvas>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-line"></div>
+      <p class="loader-text">Loading The Eye</p>
+      <div class="loader-progress-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header id="site-header">
+    <div class="header-left">
+      <span class="header-tag">© Archive</span>
+      <span class="header-tag">1954 — 1984</span>
+    </div>
+    <div class="header-center">
+      <h1 class="site-title">WINOGRAND</h1>
+    </div>
+    <div class="header-right">
+      <button class="nav-btn active" data-filter="all">All</button>
+      <button class="nav-btn" data-filter="nyc">New York</button>
+      <button class="nav-btn" data-filter="life">American Life</button>
+      <button class="nav-btn" data-filter="zoo">Animals</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div class="hero-text-block">
+      <p class="hero-eyebrow">Street Photography</p>
+      <h2 class="hero-headline">The<br /><em>Unposed</em><br />World</h2>
+      <p class="hero-sub">Garry Winogrand (1928–1984) photographed America's raw, restless energy with an instinctive eye that changed photography forever.</p>
+      <a href="#gallery" class="hero-cta" id="enter-gallery">Enter Archive <span class="cta-arrow">↓</span></a>
+    </div>
+    <div class="hero-film-strip">
+      <div class="film-hole-row top">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="film-images">
+        <div class="film-thumb f1"></div>
+        <div class="film-thumb f2"></div>
+        <div class="film-thumb f3"></div>
+      </div>
+      <div class="film-hole-row bottom">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BAND -->
+  <div class="quote-band">
+    <div class="marquee-track">
+      <span>"I photograph to find out what something will look like photographed." — Garry Winogrand &nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp; "Photography is not about the thing photographed. It is about how that thing looks photographed." &nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp; "I photograph to find out what something will look like photographed." — Garry Winogrand &nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp; "Photography is not about the thing photographed. It is about how that thing looks photographed." &nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery">
+    <div class="gallery-header">
+      <span class="gallery-label">Selected Works</span>
+      <span class="gallery-count" id="photo-count">24 Photographs</span>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- BIOGRAPHY SECTION -->
+  <section id="biography">
+    <div class="bio-layout">
+      <div class="bio-left">
+        <span class="section-label">Biography</span>
+        <h3 class="bio-title">The Man Behind<br /><em>The Lens</em></h3>
+      </div>
+      <div class="bio-right">
+        <p>Born in the Bronx, New York in 1928, Garry Winogrand became one of the most influential photographers of the twentieth century. Armed with a Leica and an insatiable hunger for life's fleeting moments, he roamed the streets of America documenting everything from Times Square to Texas rodeos.</p>
+        <p>He studied painting at City College of New York before turning to photography, studying under Alexey Brodovitch. His work captured the frenetic, optimistic, and sometimes unsettling energy of postwar America with unmatched vitality.</p>
+        <p>When he died in 1984, he left behind over 2,500 undeveloped rolls of film — a final testament to his belief that the act of photographing was itself the purpose.</p>
+        <div class="bio-stats">
+          <div class="stat"><span class="stat-num">2,500+</span><span class="stat-label">Undeveloped Rolls</span></div>
+          <div class="stat"><span class="stat-num">30yrs</span><span class="stat-label">Career Span</span></div>
+          <div class="stat"><span class="stat-num">5</span><span class="stat-label">Major Books</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="footer-top">
+      <span class="footer-title">WINOGRAND</span>
+      <span class="footer-sub">The Street Eye Archive</span>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Archival Tribute. All photographs belong to their respective estates.</span>
+      <span>Built as a tribute to street photography.</span>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox-hidden">
+    <div class="lightbox-overlay" id="lb-overlay"></div>
+    <div class="lightbox-container">
+      <button class="lb-close" id="lb-close">✕</button>
+      <button class="lb-nav lb-prev" id="lb-prev">‹</button>
+      <button class="lb-nav lb-next" id="lb-next">›</button>
+      <div class="lb-image-wrap">
+        <img id="lb-img" src="" alt="" />
+        <div class="lb-scan-line"></div>
+      </div>
+      <div class="lb-info">
+        <div class="lb-meta-left">
+          <span class="lb-index" id="lb-index">01 / 24</span>
+          <h2 class="lb-title" id="lb-title"></h2>
+        </div>
+        <div class="lb-meta-right">
+          <span class="lb-year" id="lb-year"></span>
+          <span class="lb-location" id="lb-location"></span>
+          <p class="lb-desc" id="lb-desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
